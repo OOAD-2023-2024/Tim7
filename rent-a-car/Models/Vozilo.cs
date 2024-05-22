@@ -7,18 +7,19 @@ namespace rent_a_car.Models
     {
         [Key]
         public int Id { get; set; }
-        public string Proizvodjac {  get; set; }
+        public String Proizvodjac {  get; set; }
         public String Model { get; set; }
         public double Cijena { get; set; }
-        public int Slika { get; set; }
+        public String Slika { get; set; }
         public String Opis { get; set; }
+        public String Tip { get; set; }
         public String RegistarskeTablice { get; set; }
         public bool Navigacija { get; set; }
         public Transmisija Transmisija { get; set; }
 
         public VrstaGoriva Gorivo { get; set; }
         [ForeignKey("Poslovnica")]
-        public Poslovnica MaticnaPoslovnicaId { get; set; }
+        public Poslovnica? MaticnaPoslovnicaId { get; set; }
 
 
 

@@ -3,27 +3,24 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - rent_a_car</title>
-    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
-    <link rel="stylesheet" href="~/rent_a_car.styles.css" asp-append-version="true" />
+    <title>@ViewData["Title"] - Rent-a-Car</title>
+    <link rel="stylesheet" href="~/css/styles.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <header>
-        Amare napisi
-    </header>
+    <!--<header>
+        <div class="container">
+            <a href="/" class="logo">Rent-a-Car</a>
+        </div>
+    </header> -->
     <div class="container">
-        <main role="main" class="pb-3">
-            @RenderBody()
-        </main>
+        @RenderBody()
     </div>
-
-    <footer class="border-top footer text-muted">
-       Amaare napisi
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Rent-a-Car. All Rights Reserved.</p>
+        </div>
     </footer>
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="~/js/site.js" asp-append-version="true"></script>
-    @await RenderSectionAsync("Scripts", required: false)
+    @RenderSection("Scripts", required: false)
 </body>
 </html>
