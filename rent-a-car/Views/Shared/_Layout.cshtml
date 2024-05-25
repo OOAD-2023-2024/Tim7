@@ -6,13 +6,35 @@
     <title>@ViewData["Title"] - Rent-a-Car</title>
     <link rel="stylesheet" href="~/css/styles.css" />
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    @RenderSection("Styles", required: false)
 </head>
 <body>
-    <!--<header>
-        <div class="container">
-            <a href="/" class="logo">Rent-a-Car</a>
+    <header>
+        <div class="container" style="display: flex; justify-content: space-between; align-items: center;">
+            <div>
+                <a href="/" class="logo">Home</a>
+            </div>
+            <div>
+                @{
+                    var isAuthenticated = User.Identity.IsAuthenticated;
+                }
+                <div>
+                    @if (isAuthenticated)
+                    {
+                        <a href="/Account/MyAccount" class="auth-link">My Account</a>
+                        <form asp-controller="Account" asp-action="Logout" method="post" style="display: inline;">
+                            <button type="submit" class="btn btn-link auth-link">Log Out</button>
+                        </form>
+                    }
+                    else
+                    {
+                        <a asp-area="Identity" asp-page="/Account/Register" class="auth-link">Register</a>
+                        <a asp-area="Identity" asp-page="/Account/Login" class="auth-link">Log In</a>
+                    }
+                </div>
+            </div>
         </div>
-    </header> -->
+    </header>
     <div class="container">
         @RenderBody()
     </div>

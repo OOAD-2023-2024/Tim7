@@ -1,4 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using rent_a_car.Data;
 using rent_a_car.Models;
 using System.Diagnostics;
 
@@ -6,10 +8,12 @@ namespace rent_a_car.Controllers
 {
     public class HomeController : Controller
     {
+        private readonly ApplicationDbContext _context;
         private readonly ILogger<HomeController> _logger;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ApplicationDbContext context, ILogger<HomeController> logger)
         {
+            _context = context;
             _logger = logger;
         }
 
@@ -26,13 +30,8 @@ namespace rent_a_car.Controllers
         public IActionResult ExploreCars(VoziloPretragaViewModel searchModel)
         {
             // Example static data for demonstration purposes
-            var allCars = new List<Vozilo>
-        {
-            new Vozilo { Id = 1, Proizvodjac = "Audi", Model = "A3", Cijena = 40, Slika = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS-OD1NJlzjDxMWjL-LUWN3914SDL7xFgXfrL0WX0wK3w&s", Opis = "jeeeeea", Tip = "Putnicko vozilo", RegistarskeTablice = "09g-776-56h", Navigacija = true, Transmisija = Transmisija.AUTOMATIK, Gorivo = VrstaGoriva.DIZEL  },
-            new Vozilo { Id = 2, Proizvodjac = "Mercedes", Model = "SLK", Cijena = 50, Slika = "https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/Mercedes_SLK_200_Kompressor_front.jpg/1200px-Mercedes_SLK_200_Kompressor_front.jpg", Opis = "jeeeeea", Tip = "Putnicko vozilo", RegistarskeTablice = "0988876-56h", Navigacija = true, Transmisija = Transmisija.AUTOMATIK, Gorivo = VrstaGoriva.DIZEL  },
-            new Vozilo { Id = 2, Proizvodjac = "Mercedes", Model = "GLA", Cijena = 80, Slika = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS3-3648jvx4VrhZYr-A0Sb48vpIY3rvloEpFlGAzvUnw&s", Opis = "jeeeeea", Tip = "Putnicko vozilo", RegistarskeTablice = "0988876-56h", Navigacija = true, Transmisija = Transmisija.AUTOMATIK, Gorivo = VrstaGoriva.DIZEL  }
-
-        };
+            var allCars = _context.Vozila.ToList();
+        
 
             // Filter logic
             if (!string.IsNullOrEmpty(searchModel.SearchTerm))
@@ -40,23 +39,29 @@ namespace rent_a_car.Controllers
                 allCars = allCars.Where(c => c.Proizvodjac.Contains(searchModel.SearchTerm, StringComparison.OrdinalIgnoreCase)).ToList();
             }
 
-            if (searchModel.MinCijena.HasValue && searchModel.MaxCijena.HasValue)
+            if(!string.IsNullOrEmpty(searchModel.SearchTerm) && searchModel.MinCijena.HasValue && searchModel.MaxCijena.HasValue)
+            {
+                allCars = allCars.Where(c => c.Proizvodjac.Contains(searchModel.SearchTerm, StringComparison.OrdinalIgnoreCase)
+                && c.Cijena >= searchModel.MinCijena && c.Cijena <= searchModel.MaxCijena).ToList();
+            }
+
+            if (string.IsNullOrEmpty(searchModel.SearchTerm) && searchModel.MinCijena.HasValue && searchModel.MaxCijena.HasValue)
             {
                 allCars = allCars.Where(c => c.Cijena >= searchModel.MinCijena && c.Cijena <= searchModel.MaxCijena).ToList();
             }
-            else if (searchModel.MinCijena.HasValue)
+            else if (searchModel.MinCijena.HasValue && string.IsNullOrEmpty(searchModel.SearchTerm))
             {
                 allCars = allCars.Where(c => c.Cijena >= searchModel.MinCijena).ToList();
             }
-            else if (searchModel.MaxCijena.HasValue)
+            else if (searchModel.MaxCijena.HasValue && string.IsNullOrEmpty(searchModel.SearchTerm))
             {
                 allCars = allCars.Where(c => c.Cijena <= searchModel.MaxCijena).ToList();
             }
 
-            if (!string.IsNullOrEmpty(searchModel.Tip))
+            /*if (!string.IsNullOrEmpty(searchModel.Tip))
             {
-                allCars = allCars.Where(c => c.Tip.Equals(searchModel.Tip, StringComparison.OrdinalIgnoreCase)).ToList();
-            }
+                allCars = allCars.Where(c => c.Tip.Equals(searchModel.Tip)).ToList();
+            }*/
 
 
 
@@ -64,6 +69,19 @@ namespace rent_a_car.Controllers
 
             return View(searchModel);
         }
+
+        public IActionResult CarDetails(int id)
+        {
+            var car = _context.Vozila.FirstOrDefault(c => c.Id == id);
+            if (car == null)
+            {
+                return NotFound();
+            }
+
+            return View(car);
+        }
+
+
     }
 }
 

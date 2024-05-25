@@ -3,56 +3,24 @@
   "WorkspaceRootPath": "C:\\Users\\Korisnik\\Desktop\\Tim7\\rent-a-car\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{C05683ED-ED5F-48A4-828D-77883182F6E9}|rent-a-car.csproj|c:\\users\\korisnik\\desktop\\tim7\\rent-a-car\\models\\vozilopretragaviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C05683ED-ED5F-48A4-828D-77883182F6E9}|rent-a-car.csproj|solutionrelative:models\\vozilopretragaviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{C05683ED-ED5F-48A4-828D-77883182F6E9}|rent-a-car.csproj|c:\\users\\korisnik\\desktop\\tim7\\rent-a-car\\views\\account\\myaccount.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{C05683ED-ED5F-48A4-828D-77883182F6E9}|rent-a-car.csproj|solutionrelative:views\\account\\myaccount.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C05683ED-ED5F-48A4-828D-77883182F6E9}|rent-a-car.csproj|c:\\users\\korisnik\\desktop\\tim7\\rent-a-car\\views\\home\\explorecars.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{C05683ED-ED5F-48A4-828D-77883182F6E9}|rent-a-car.csproj|solutionrelative:views\\home\\explorecars.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{C05683ED-ED5F-48A4-828D-77883182F6E9}|rent-a-car.csproj|c:\\users\\korisnik\\desktop\\tim7\\rent-a-car\\models\\myaccountviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C05683ED-ED5F-48A4-828D-77883182F6E9}|rent-a-car.csproj|solutionrelative:models\\myaccountviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C05683ED-ED5F-48A4-828D-77883182F6E9}|rent-a-car.csproj|c:\\users\\korisnik\\desktop\\tim7\\rent-a-car\\models\\registerviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C05683ED-ED5F-48A4-828D-77883182F6E9}|rent-a-car.csproj|solutionrelative:models\\registerviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{C05683ED-ED5F-48A4-828D-77883182F6E9}|rent-a-car.csproj|c:\\users\\korisnik\\desktop\\tim7\\rent-a-car\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{C05683ED-ED5F-48A4-828D-77883182F6E9}|rent-a-car.csproj|solutionrelative:controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C05683ED-ED5F-48A4-828D-77883182F6E9}|rent-a-car.csproj|c:\\users\\korisnik\\desktop\\tim7\\rent-a-car\\models\\vozilo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C05683ED-ED5F-48A4-828D-77883182F6E9}|rent-a-car.csproj|solutionrelative:models\\vozilo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C05683ED-ED5F-48A4-828D-77883182F6E9}|rent-a-car.csproj|c:\\users\\korisnik\\desktop\\tim7\\rent-a-car\\models\\putnickovozilo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C05683ED-ED5F-48A4-828D-77883182F6E9}|rent-a-car.csproj|solutionrelative:models\\putnickovozilo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C05683ED-ED5F-48A4-828D-77883182F6E9}|rent-a-car.csproj|c:\\users\\korisnik\\desktop\\tim7\\rent-a-car\\controllers\\vozilocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C05683ED-ED5F-48A4-828D-77883182F6E9}|rent-a-car.csproj|solutionrelative:controllers\\vozilocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C05683ED-ED5F-48A4-828D-77883182F6E9}|rent-a-car.csproj|c:\\users\\korisnik\\desktop\\tim7\\rent-a-car\\models\\transportnovozilo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C05683ED-ED5F-48A4-828D-77883182F6E9}|rent-a-car.csproj|solutionrelative:models\\transportnovozilo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C05683ED-ED5F-48A4-828D-77883182F6E9}|rent-a-car.csproj|c:\\users\\korisnik\\desktop\\tim7\\rent-a-car\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{C05683ED-ED5F-48A4-828D-77883182F6E9}|rent-a-car.csproj|solutionrelative:views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C05683ED-ED5F-48A4-828D-77883182F6E9}|rent-a-car.csproj|c:\\users\\korisnik\\desktop\\tim7\\rent-a-car\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{C05683ED-ED5F-48A4-828D-77883182F6E9}|rent-a-car.csproj|solutionrelative:views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C05683ED-ED5F-48A4-828D-77883182F6E9}|rent-a-car.csproj|c:\\users\\korisnik\\desktop\\tim7\\rent-a-car\\data\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C05683ED-ED5F-48A4-828D-77883182F6E9}|rent-a-car.csproj|solutionrelative:data\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C05683ED-ED5F-48A4-828D-77883182F6E9}|rent-a-car.csproj|c:\\users\\korisnik\\desktop\\tim7\\rent-a-car\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C05683ED-ED5F-48A4-828D-77883182F6E9}|rent-a-car.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C05683ED-ED5F-48A4-828D-77883182F6E9}|rent-a-car.csproj|c:\\users\\korisnik\\desktop\\tim7\\rent-a-car\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{C05683ED-ED5F-48A4-828D-77883182F6E9}|rent-a-car.csproj|solutionrelative:appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C05683ED-ED5F-48A4-828D-77883182F6E9}|rent-a-car.csproj|c:\\users\\korisnik\\desktop\\tim7\\rent-a-car\\models\\rezervacija.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C05683ED-ED5F-48A4-828D-77883182F6E9}|rent-a-car.csproj|solutionrelative:models\\rezervacija.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{C05683ED-ED5F-48A4-828D-77883182F6E9}|rent-a-car.csproj|c:\\users\\korisnik\\desktop\\tim7\\rent-a-car\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C05683ED-ED5F-48A4-828D-77883182F6E9}|rent-a-car.csproj|solutionrelative:controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -67,162 +35,67 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "VoziloPretragaViewModel.cs",
-              "DocumentMoniker": "C:\\Users\\Korisnik\\Desktop\\Tim7\\rent-a-car\\Models\\VoziloPretragaViewModel.cs",
-              "RelativeDocumentMoniker": "Models\\VoziloPretragaViewModel.cs",
-              "ToolTip": "C:\\Users\\Korisnik\\Desktop\\Tim7\\rent-a-car\\Models\\VoziloPretragaViewModel.cs",
-              "RelativeToolTip": "Models\\VoziloPretragaViewModel.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAAVAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-22T08:21:47.797Z",
+              "Title": "MyAccount.cshtml",
+              "DocumentMoniker": "C:\\Users\\Korisnik\\Desktop\\Tim7\\rent-a-car\\Views\\Account\\MyAccount.cshtml",
+              "RelativeDocumentMoniker": "Views\\Account\\MyAccount.cshtml",
+              "ToolTip": "C:\\Users\\Korisnik\\Desktop\\Tim7\\rent-a-car\\Views\\Account\\MyAccount.cshtml",
+              "RelativeToolTip": "Views\\Account\\MyAccount.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAqwAYAAAATAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-05-24T14:15:15.818Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "ExploreCars.cshtml",
-              "DocumentMoniker": "C:\\Users\\Korisnik\\Desktop\\Tim7\\rent-a-car\\Views\\Home\\ExploreCars.cshtml",
-              "RelativeDocumentMoniker": "Views\\Home\\ExploreCars.cshtml",
-              "ToolTip": "C:\\Users\\Korisnik\\Desktop\\Tim7\\rent-a-car\\Views\\Home\\ExploreCars.cshtml",
-              "RelativeToolTip": "Views\\Home\\ExploreCars.cshtml",
-              "ViewState": "AQIAADYAAAAAAAAAAAAAAHcAAAASAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-05-22T07:51:28.28Z",
+              "Title": "MyAccountViewModel.cs",
+              "DocumentMoniker": "C:\\Users\\Korisnik\\Desktop\\Tim7\\rent-a-car\\Models\\MyAccountViewModel.cs",
+              "RelativeDocumentMoniker": "Models\\MyAccountViewModel.cs",
+              "ToolTip": "C:\\Users\\Korisnik\\Desktop\\Tim7\\rent-a-car\\Models\\MyAccountViewModel.cs",
+              "RelativeToolTip": "Models\\MyAccountViewModel.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAB4AAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-24T14:12:06.706Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
+              "Title": "RegisterViewModel.cs",
+              "DocumentMoniker": "C:\\Users\\Korisnik\\Desktop\\Tim7\\rent-a-car\\Models\\RegisterViewModel.cs",
+              "RelativeDocumentMoniker": "Models\\RegisterViewModel.cs",
+              "ToolTip": "C:\\Users\\Korisnik\\Desktop\\Tim7\\rent-a-car\\Models\\RegisterViewModel.cs",
+              "RelativeToolTip": "Models\\RegisterViewModel.cs",
+              "ViewState": "AQIAAAMAAAAAAAAAAAAAACkAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-24T14:10:56.565Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
               "Title": "HomeController.cs",
               "DocumentMoniker": "C:\\Users\\Korisnik\\Desktop\\Tim7\\rent-a-car\\Controllers\\HomeController.cs",
               "RelativeDocumentMoniker": "Controllers\\HomeController.cs",
               "ToolTip": "C:\\Users\\Korisnik\\Desktop\\Tim7\\rent-a-car\\Controllers\\HomeController.cs",
               "RelativeToolTip": "Controllers\\HomeController.cs",
-              "ViewState": "AQIAABEAAAAAAAAAAAAYwCAAAADEAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-22T07:50:06.6Z",
+              "WhenOpened": "2024-05-24T14:08:19.098Z",
               "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "VoziloController.cs",
-              "DocumentMoniker": "C:\\Users\\Korisnik\\Desktop\\Tim7\\rent-a-car\\Controllers\\VoziloController.cs",
-              "RelativeDocumentMoniker": "Controllers\\VoziloController.cs",
-              "ToolTip": "C:\\Users\\Korisnik\\Desktop\\Tim7\\rent-a-car\\Controllers\\VoziloController.cs",
-              "RelativeToolTip": "Controllers\\VoziloController.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABEAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-20T15:47:28.489Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 4,
-              "Title": "PutnickoVozilo.cs",
-              "DocumentMoniker": "C:\\Users\\Korisnik\\Desktop\\Tim7\\rent-a-car\\Models\\PutnickoVozilo.cs",
-              "RelativeDocumentMoniker": "Models\\PutnickoVozilo.cs",
-              "ToolTip": "C:\\Users\\Korisnik\\Desktop\\Tim7\\rent-a-car\\Models\\PutnickoVozilo.cs",
-              "RelativeToolTip": "Models\\PutnickoVozilo.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAUAAAAnAAAA",
+              "Title": "AccountController.cs",
+              "DocumentMoniker": "C:\\Users\\Korisnik\\Desktop\\Tim7\\rent-a-car\\Controllers\\AccountController.cs",
+              "RelativeDocumentMoniker": "Controllers\\AccountController.cs",
+              "ToolTip": "C:\\Users\\Korisnik\\Desktop\\Tim7\\rent-a-car\\Controllers\\AccountController.cs",
+              "RelativeToolTip": "Controllers\\AccountController.cs",
+              "ViewState": "AQIAACcAAAAAAAAAAAAAACcAAAAfAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-20T14:17:37.695Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "Vozilo.cs",
-              "DocumentMoniker": "C:\\Users\\Korisnik\\Desktop\\Tim7\\rent-a-car\\Models\\Vozilo.cs",
-              "RelativeDocumentMoniker": "Models\\Vozilo.cs",
-              "ToolTip": "C:\\Users\\Korisnik\\Desktop\\Tim7\\rent-a-car\\Models\\Vozilo.cs",
-              "RelativeToolTip": "Models\\Vozilo.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAAANAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-20T13:59:51.765Z",
+              "WhenOpened": "2024-05-24T14:07:24.896Z",
               "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "TransportnoVozilo.cs",
-              "DocumentMoniker": "C:\\Users\\Korisnik\\Desktop\\Tim7\\rent-a-car\\Models\\TransportnoVozilo.cs",
-              "RelativeDocumentMoniker": "Models\\TransportnoVozilo.cs",
-              "ToolTip": "C:\\Users\\Korisnik\\Desktop\\Tim7\\rent-a-car\\Models\\TransportnoVozilo.cs",
-              "RelativeToolTip": "Models\\TransportnoVozilo.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAAAHAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-20T14:11:28.658Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "_Layout.cshtml",
-              "DocumentMoniker": "C:\\Users\\Korisnik\\Desktop\\Tim7\\rent-a-car\\Views\\Shared\\_Layout.cshtml",
-              "RelativeDocumentMoniker": "Views\\Shared\\_Layout.cshtml",
-              "ToolTip": "C:\\Users\\Korisnik\\Desktop\\Tim7\\rent-a-car\\Views\\Shared\\_Layout.cshtml",
-              "RelativeToolTip": "Views\\Shared\\_Layout.cshtml",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA4AAAARAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-05-20T15:49:33.856Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "C:\\Users\\Korisnik\\Desktop\\Tim7\\rent-a-car\\Views\\Home\\Index.cshtml",
-              "RelativeDocumentMoniker": "Views\\Home\\Index.cshtml",
-              "ToolTip": "C:\\Users\\Korisnik\\Desktop\\Tim7\\rent-a-car\\Views\\Home\\Index.cshtml",
-              "RelativeToolTip": "Views\\Home\\Index.cshtml",
-              "ViewState": "AQIAAIMAAAAAAAAAAAAiwJIAAAAOAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-05-20T15:59:40.862Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "ApplicationDbContext.cs",
-              "DocumentMoniker": "C:\\Users\\Korisnik\\Desktop\\Tim7\\rent-a-car\\Data\\ApplicationDbContext.cs",
-              "RelativeDocumentMoniker": "Data\\ApplicationDbContext.cs",
-              "ToolTip": "C:\\Users\\Korisnik\\Desktop\\Tim7\\rent-a-car\\Data\\ApplicationDbContext.cs",
-              "RelativeToolTip": "Data\\ApplicationDbContext.cs",
-              "ViewState": "AQIAAB4AAAAAAAAAAAAiwC0AAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-20T13:27:03.769Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\Korisnik\\Desktop\\Tim7\\rent-a-car\\Program.cs",
-              "RelativeDocumentMoniker": "Program.cs",
-              "ToolTip": "C:\\Users\\Korisnik\\Desktop\\Tim7\\rent-a-car\\Program.cs",
-              "RelativeToolTip": "Program.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAQAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-20T13:23:54.541Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "appsettings.json",
-              "DocumentMoniker": "C:\\Users\\Korisnik\\Desktop\\Tim7\\rent-a-car\\appsettings.json",
-              "RelativeDocumentMoniker": "appsettings.json",
-              "ToolTip": "C:\\Users\\Korisnik\\Desktop\\Tim7\\rent-a-car\\appsettings.json",
-              "RelativeToolTip": "appsettings.json",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAMAAACTAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2024-05-15T21:43:10.583Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "Rezervacija.cs",
-              "DocumentMoniker": "C:\\Users\\Korisnik\\Desktop\\Tim7\\rent-a-car\\Models\\Rezervacija.cs",
-              "RelativeDocumentMoniker": "Models\\Rezervacija.cs",
-              "ToolTip": "C:\\Users\\Korisnik\\Desktop\\Tim7\\rent-a-car\\Models\\Rezervacija.cs",
-              "RelativeToolTip": "Models\\Rezervacija.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-15T21:27:04.015Z"
             }
           ]
         }

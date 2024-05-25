@@ -16,3 +16,11 @@ html {
 body {
   margin-bottom: 60px;
 }
+a {
+    text-decoration: none; /* Uklanja podvla?enje */
+    color: inherit; /* Nasle?uje boju od roditeljskog elementa */
+}
+
+    a:hover {
+        text-decoration: underline; /* Opcionalno: podvla?enje na hover */
+    }

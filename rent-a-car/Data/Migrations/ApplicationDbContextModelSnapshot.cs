@@ -429,15 +429,15 @@ namespace rent_a_car.Data.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("Slika")
+                    b.Property<string>("Slika")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("Tip")
                         .HasColumnType("int");
 
                     b.Property<int>("Transmisija")
                         .HasColumnType("int");
-
-                    b.Property<string>("VoziloType")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
@@ -445,7 +445,7 @@ namespace rent_a_car.Data.Migrations
 
                     b.ToTable("Vozila");
 
-                    b.HasDiscriminator<string>("VoziloType").HasValue("Vozilo");
+                    b.HasDiscriminator<int>("Tip").HasValue(0);
                 });
 
             modelBuilder.Entity("rent_a_car.Models.Dostavljac", b =>
@@ -485,36 +485,29 @@ namespace rent_a_car.Data.Migrations
                 {
                     b.HasBaseType("rent_a_car.Models.Vozilo");
 
-                    b.Property<int>("BrojSjedista")
+                    b.Property<int?>("BrojSjedista")
                         .HasColumnType("int");
 
-                    b.Property<bool>("Tempomat")
+                    b.Property<bool?>("Tempomat")
                         .HasColumnType("bit");
 
-                    b.Property<int>("Tip")
-                        .HasColumnType("int")
-                        .HasColumnName("PutnickoVozilo_Tip");
-
-                    b.HasDiscriminator().HasValue("PutnickoVozilo");
+                    b.HasDiscriminator().HasValue(1);
                 });
 
             modelBuilder.Entity("rent_a_car.Models.TransportnoVozilo", b =>
                 {
                     b.HasBaseType("rent_a_car.Models.Vozilo");
 
-                    b.Property<double>("Duzina")
+                    b.Property<double?>("Duzina")
                         .HasColumnType("float");
 
-                    b.Property<double>("Nosivost")
+                    b.Property<double?>("Nosivost")
                         .HasColumnType("float");
 
-                    b.Property<bool>("Prikolica")
+                    b.Property<bool?>("Prikolica")
                         .HasColumnType("bit");
 
-                    b.Property<int>("Tip")
-                        .HasColumnType("int");
-
-                    b.HasDiscriminator().HasValue("TransportnoVozilo");
+                    b.HasDiscriminator().HasValue(2);
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>

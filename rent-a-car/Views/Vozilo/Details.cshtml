@@ -1,0 +1,51 @@
+﻿@model rent_a_car.Models.DetaljiVozilaViewModel
+
+@{
+    ViewData["Title"] = "Car Details";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewData["Title"]</title>
+    <link rel="stylesheet" href="~/css/styles.css">
+</head>
+<body>
+    <div class="container">
+        <img src="@Model.Vozilo.Slika" alt="Car Image" />
+        <h2>@Model.Vozilo.Proizvodjac @Model.Vozilo.Model</h2>
+        <p><strong>Opis:</strong> @Model.Vozilo.Opis</p>
+        <p><strong>Gorivo:</strong> @Model.Vozilo.Gorivo</p>
+        <p><strong>Transmisija:</strong> @Model.Vozilo.Transmisija</p>
+        <p><strong>Navigacija:</strong> @(Model.Vozilo.Navigacija ? "Yes" : "No")</p>
+
+
+        @if (Model.Vozilo.Tip == TipVozila.PUTNICKO)
+        {
+            var putnicko = Model.Vozilo as PutnickoVozilo;
+            if (putnicko != null)
+            {
+                <p><strong>Tempomat:</strong> @(putnicko.Tempomat.HasValue ? (putnicko.Tempomat.Value ? "Yes" : "No") : "-")</p>
+                <p><strong>Broj sjedista:</strong> @(putnicko.BrojSjedista.HasValue ? putnicko.BrojSjedista.Value.ToString() : "-")</p>
+            }
+        }
+        else if (Model.Vozilo.Tip == TipVozila.TRANSPORTNO)
+        {
+            var transportno = Model.Vozilo as TransportnoVozilo;
+            if (transportno != null)
+            {
+                <p><strong>Tip vozila:</strong> @transportno.Tip</p>
+                <p><strong>Nosivost:</strong> @(transportno.Nosivost.HasValue ? transportno.Nosivost.Value.ToString() : "-")</p>
+                <p><strong>Duzina:</strong> @(transportno.Duzina.HasValue ? transportno.Duzina.Value.ToString() : "-")</p>
+                <p><strong>Prikolica:</strong> @(transportno.Prikolica.HasValue ? (transportno.Prikolica.Value ? "Yes" : "No") : "-")</p>
+            }
+        }
+
+        <p><strong>Adresa poslovnice:</strong> @(Model.Poslovnica != null ? Model.Poslovnica.Adresa : "-")</p>
+        <p><strong>Kontakt poslovnice:</strong> @(Model.Poslovnica != null ? Model.Poslovnica.Kontakt : "-")</p>
+    </div>
+</body>
+</html>
+

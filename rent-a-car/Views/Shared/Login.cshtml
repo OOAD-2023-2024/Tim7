@@ -1,0 +1,24 @@
+﻿@model rent_a_car.Models.LoginViewModel
+
+@{
+    ViewData["Title"] = "Login";
+}
+
+<form asp-action="Login" asp-controller="Account" method="post">
+    <div class="form-group">
+        <label class="font-weight-bold text-primary">Email:</label>
+        <input asp-for="Email" class="form-control" />
+        <span asp-validation-for="Email" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label class="font-weight-bold text-primary">Password:</label>
+        <input asp-for="Password" type="password" class="form-control" />
+        <span asp-validation-for="Password" class="text-danger"></span>
+    </div>
+    <div class="form-group form-check">
+        <input asp-for="RememberMe" class="form-check-input" />
+        <label class="form-check-label font-weight-bold text-primary ml-2" asp-for="RememberMe">Remember Me</label>
+    </div>
+    <button type="submit" class="btn btn-primary btn-block mt-3">Login</button>
+</form>
+

@@ -24,12 +24,12 @@ namespace rent_a_car.Data
         public DbSet<TransportnoVozilo> TransportnaVozila { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
-        {
+        { 
             modelBuilder.Entity<Vozilo>()
-                .HasDiscriminator<string>("VoziloType")
-                .HasValue<Vozilo>("Vozilo")
-                .HasValue<TransportnoVozilo>("TransportnoVozilo")
-                .HasValue<PutnickoVozilo>("PutnickoVozilo");
+           .HasDiscriminator<TipVozila>("Tip")
+           .HasValue<Vozilo>(TipVozila.GENERALNO) // Ovo može biti općenitiji tip ako je potrebno
+           .HasValue<PutnickoVozilo>(TipVozila.PUTNICKO)
+           .HasValue<TransportnoVozilo>(TipVozila.TRANSPORTNO);
 
             modelBuilder.Entity<Account>().ToTable("Racun");
             modelBuilder.Entity<Dostava>().ToTable("Dostava");

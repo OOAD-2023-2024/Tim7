@@ -10,7 +10,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewData["Title"] - Rent-a-Car</title>
-    <link rel="stylesheet" href="~/css/styles.css">
+    <link rel="stylesheet" href="~/css/Styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <style>
         body {
@@ -39,20 +39,20 @@
             padding: 2rem 0;
         }
 
-        .search-filters input,
-        .search-filters select,
-        .search-filters button {
-            padding: 0.5rem;
-            font-size: 1rem;
-        }
+            .search-filters input,
+            .search-filters select,
+            .search-filters button {
+                padding: 0.5rem;
+                font-size: 1rem;
+            }
 
-        .search-filters button {
-            background-color: #ff5722;
-            color: #fff;
-            border: none;
-            cursor: pointer;
-            font-weight: bold;
-        }
+            .search-filters button {
+                background-color: #ff5722;
+                color: #fff;
+                border: none;
+                cursor: pointer;
+                font-weight: bold;
+            }
 
         .cars-grid {
             display: flex;
@@ -71,20 +71,31 @@
             align-items: center;
         }
 
-        .car-card img {
-            max-width: 100%;
-            border-radius: 10px;
+            .car-card img {
+                width: 100%;
+                height: 200px; /* Adjust the height as needed */
+                object-fit: cover; /* Ensures the image covers the area without distortion */
+                border-radius: 10px;
+            }
+
+            .car-card h3 {
+                font-size: 1.25rem;
+                margin: 0.5rem 0;
+            }
+
+            .car-card p {
+                font-size: 1rem;
+                color: #666;
+            }
+
+        a {
+            text-decoration: none;
+            color: inherit;
         }
 
-        .car-card h3 {
-            font-size: 1.25rem;
-            margin: 0.5rem 0;
-        }
-
-        .car-card p {
-            font-size: 1rem;
-            color: #666;
-        }
+            a:hover {
+                text-decoration: underline;
+            }
     </style>
 </head>
 <body>
@@ -108,11 +119,10 @@
                     }
                 </select>
 
-
                 <select name="Type">
-                        <option value="">All Types</option>
-                        Passenger
-                        Commercial
+                    <option value="">All Types</option>
+                    <option value="Passenger">Passenger</option>
+                    <option value="Commercial">Commercial</option>
                 </select>
 
                 <button type="submit">Search</button>
@@ -122,21 +132,14 @@
         <section class="cars-grid">
             @foreach (var car in Model.Cars)
             {
-                <div class="car-card">
+                <a href="@Url.Action("Details", "Vozilo", new { id = car.Id })" class="car-card">
                     <img src="@car.Slika" alt="@car.Model" />
                     <h3>@car.Proizvodjac @car.Model</h3>
                     <p>Type: @car.Tip</p>
                     <p>Price: $@car.Cijena</p>
-                </div>
+                </a>
             }
         </section>
     </div>
-
-    <footer>
-        <div class="container">
-            <p>&copy; 2024 Rent-a-Car. All Rights Reserved.</p>
-        </div>
-    </footer>
 </body>
 </html>
-
