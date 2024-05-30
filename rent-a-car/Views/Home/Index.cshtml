@@ -55,8 +55,6 @@
             padding: 5rem 0;
         }
 
-
-
             .hero h1 {
                 font-size: 3rem;
                 margin: 0;
@@ -123,21 +121,6 @@
     </style>
 </head>
 <body>
-    <!--<header>
-        <div class="container" style="display: flex; justify-content: space-between; align-items: center;">
-            <div>
-                <a href="/" class="logo">Home</a>
-            </div>
-            <div>
-                <a href="/register" class="auth-link">Register</a>
-                <a href="/login" class="auth-link">Log In</a>
-            </div>
-        </div>
-    </header>-->
-
-   
-        
-
     <section id="home" class="hero">
         <div class="container">
             <h1>Your Journey Begins Here</h1>
@@ -169,11 +152,73 @@
         </div>
     </section>
 
-    <!--<footer>
+    <h2>Where to find us?</h2>
+
+    <div style="margin-top: 2%; margin-bottom: 2%">
+        <div id="myMap" style="position:relative;width:1280px;height:400px;"></div>
+    </div>
+
+    <footer>
         <div class="container">
             <p>&copy; 2024 Rent-a-Car. All Rights Reserved.</p>
         </div>
-    </footer> -->
-    
+    </footer>
+
+    <script type="text/javascript" src="https://www.bing.com/api/maps/mapcontrol?callback=GetMap" async defer></script>
+    <script type="text/javascript">
+        var infobox;
+
+        function GetMap() {
+            var map = new Microsoft.Maps.Map('#myMap', {
+                credentials: 'Apd901yAVqyCHL8MBp5F8umliIy0TRwRC_kGs9hFSjvBtZIiloQrHZRGpDfkYoF8',
+                center: new Microsoft.Maps.Location(43.8563, 18.4131),
+                mapTypeId: Microsoft.Maps.MapTypeId.aerial,
+                zoom: 10
+            });
+
+            infobox = new Microsoft.Maps.Infobox(map.getCenter(), {
+                visible: false
+            });
+            infobox.setMap(map);
+
+            var locations = [
+                {
+                    latitude: 43.8563,
+                    longitude: 18.3959,
+                    title: 'Rent a car',
+                    description: 'Zmaja od Bosne 4'
+                },
+                {
+                    latitude: 43.846356560901135,
+                    longitude: 18.37704658005615,
+                    title: 'Rent a car',
+                    description: 'Safeta Hadzica 2'
+                }
+            ];
+
+            locations.forEach(function (location) {
+                var loc = new Microsoft.Maps.Location(location.latitude, location.longitude);
+                var pin = new Microsoft.Maps.Pushpin(loc);
+                pin.metadata = {
+                    title: location.title,
+                    description: location.description
+                };
+
+                Microsoft.Maps.Events.addHandler(pin, 'click', pushpinClicked);
+                map.entities.push(pin);
+            });
+        }
+
+        function pushpinClicked(e) {
+            if (e.target.metadata) {
+                infobox.setOptions({
+                    location: e.target.getLocation(),
+                    title: e.target.metadata.title,
+                    description: e.target.metadata.description,
+                    visible: true
+                });
+            }
+        }
+    </script>
 </body>
 </html>

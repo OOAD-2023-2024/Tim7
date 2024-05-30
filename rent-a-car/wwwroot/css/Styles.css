@@ -58,6 +58,20 @@ header {
     color: inherit; /* Inherit color from parent */
 }
 
+.toast-success {
+    background-color: #28a745 !important;
+}
+
+    .toast-success .toast-title {
+        font-weight: bold;
+        color: #ffffff !important;
+    }
+
+    .toast-success .toast-message {
+        color: #ffffff !important;
+    }
+
+
     .car-card img {
         max-width: 100%;
         border-radius: 10px;

@@ -31,6 +31,7 @@ namespace rent_a_car.Controllers
                 var result = await _signInManager.PasswordSignInAsync(model.Email, model.Password, model.RememberMe, lockoutOnFailure: true);
                 if (result.Succeeded)
                 {
+                    TempData["LoginSuccess"] = "You have successfully logged in!";
                     return LocalRedirect(returnUrl);
                 }
                 ModelState.AddModelError(string.Empty, "Invalid login attempt.");

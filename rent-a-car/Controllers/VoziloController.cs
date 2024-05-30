@@ -1,10 +1,12 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using rent_a_car.Data;
 using rent_a_car.Models;
 
 namespace rent_a_car.Controllers
 {
+    [Authorize]
     public class VoziloController : Controller
     {
         private readonly ApplicationDbContext _context;

@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "r73VbsnYFaOzazrSvW52Uru3ZyUyTxfTdLWjAEkhydI=",
+  "Hash": "b1Xn4W5OLiXzBM0ags8OG3jFEjyXpGNN+pnfD0NFvmA=",
   "Source": "rent-a-car",
   "BasePath": "_content/rent-a-car",
   "Mode": "Default",
@@ -1214,12 +1214,12 @@
       "OriginalItemSpec": "wwwroot\\css\\site.css"
     },
     {
-      "Identity": "C:\\Users\\Korisnik\\Desktop\\Tim7\\rent-a-car\\wwwroot\\css\\Styles.css",
+      "Identity": "C:\\Users\\Korisnik\\Desktop\\Tim7\\rent-a-car\\wwwroot\\css\\styles.css",
       "SourceId": "rent-a-car",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\Korisnik\\Desktop\\Tim7\\rent-a-car\\wwwroot\\",
       "BasePath": "_content/rent-a-car",
-      "RelativePath": "css/Styles.css",
+      "RelativePath": "css/styles.css",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -1230,7 +1230,7 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\css\\Styles.css"
+      "OriginalItemSpec": "wwwroot\\css\\styles.css"
     },
     {
       "Identity": "C:\\Users\\Korisnik\\Desktop\\Tim7\\rent-a-car\\wwwroot\\favicon.ico",

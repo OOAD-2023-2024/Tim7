@@ -5,12 +5,12 @@
       "PackagePath": "staticwebassets\\rent-a-car.bundle.scp.css"
     },
     {
-      "Id": "C:\\Users\\Korisnik\\Desktop\\Tim7\\rent-a-car\\wwwroot\\css\\Styles.css",
-      "PackagePath": "staticwebassets\\css\\Styles.css"
-    },
-    {
       "Id": "C:\\Users\\Korisnik\\Desktop\\Tim7\\rent-a-car\\wwwroot\\css\\site.css",
       "PackagePath": "staticwebassets\\css\\site.css"
+    },
+    {
+      "Id": "C:\\Users\\Korisnik\\Desktop\\Tim7\\rent-a-car\\wwwroot\\css\\styles.css",
+      "PackagePath": "staticwebassets\\css\\styles.css"
     },
     {
       "Id": "C:\\Users\\Korisnik\\Desktop\\Tim7\\rent-a-car\\wwwroot\\favicon.ico",
