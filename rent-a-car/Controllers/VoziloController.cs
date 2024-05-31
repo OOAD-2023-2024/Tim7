@@ -44,6 +44,34 @@ namespace rent_a_car.Controllers
             return View(model);
         }
 
+        // GET: Vozilo
+        public IActionResult Index()
+        {
+            var vozila = _context.Vozila.ToList();
+            return View(vozila);
+        }
+
+        // GET: Vozilo/Create
+        public IActionResult Create()
+        {
+            return View();
+        }
+
+        // POST: Vozilo/Create
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Create([Bind("Proizvodjac,Model,Cijena,Slika,Opis,Tip,RegistarskeTablice,Navigacija,Transmisija,Gorivo,MaticnaPoslovnicaId")] Vozilo vozilo)
+        {
+            if (ModelState.IsValid)
+            {
+                _context.Add(vozilo);
+                await _context.SaveChangesAsync();
+                return RedirectToAction(nameof(Index));
+            }
+            return View(vozilo);
+        }
     }
 
 }
+
+

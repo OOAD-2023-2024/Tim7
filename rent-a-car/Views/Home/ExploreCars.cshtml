@@ -24,7 +24,28 @@
             background-color: #333;
             color: #fff;
             padding: 1rem 0;
+            position: relative;
         }
+
+        .admin-buttons {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+        }
+
+            .admin-buttons a {
+                margin-left: 1rem;
+                background-color: #ff5722;
+                color: #fff;
+                padding: 0.5rem 1rem;
+                text-decoration: none;
+                font-weight: bold;
+                border-radius: 5px;
+            }
+
+                .admin-buttons a:hover {
+                    background-color: #e64a19;
+                }
 
         .container {
             max-width: 1200px;
@@ -102,6 +123,13 @@
     <header>
         <div class="container">
             <h1>@ViewData["Title"]</h1>
+            @if (User.IsInRole("Administrator"))
+            {
+                <div class="admin-buttons">
+                    <a asp-controller="Vozilo" asp-action="Create">Add Vehicle</a>
+                    <a asp-controller="Vozilo" asp-action="Delete">Delete Vehicle</a>
+                </div>
+            }
         </div>
     </header>
 
