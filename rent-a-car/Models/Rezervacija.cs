@@ -14,8 +14,8 @@ namespace rent_a_car.Models
 
         [ForeignKey("Vozilo")]
         public int VoziloId { get; set; }
-        [ForeignKey("Korisnik")]
-        public int NarucilacId { get; set; }
+        [ForeignKey("AspNetUser")]
+        public String NarucilacId { get; set; }
         public VrstaPlacanja VrstaPlacanja { get; set; }
         [ForeignKey("Placanje")]
         public int PlacanjeId { get; set; }

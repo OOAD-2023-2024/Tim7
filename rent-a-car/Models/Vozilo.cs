@@ -21,6 +21,7 @@ namespace rent_a_car.Models
 
         [ForeignKey("Poslovnica")]
         public Poslovnica MaticnaPoslovnicaId { get; set; }
+        public bool Dostupno { get; set; }
 
 
 

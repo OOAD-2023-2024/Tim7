@@ -1,8 +1,10 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using rent_a_car.Data;
 using rent_a_car.Models;
+using System.Collections.Specialized;
 
 namespace rent_a_car.Controllers
 {
@@ -10,10 +12,13 @@ namespace rent_a_car.Controllers
     public class VoziloController : Controller
     {
         private readonly ApplicationDbContext _context;
+        private readonly ILogger<VoziloController> _logger;
 
-        public VoziloController(ApplicationDbContext context)
+
+        public VoziloController(ApplicationDbContext context, ILogger<VoziloController> logger)
         {
             _context = context;
+            _logger = logger;
         }
 
         public IActionResult Details(int id)
@@ -54,24 +59,48 @@ namespace rent_a_car.Controllers
         // GET: Vozilo/Create
         public IActionResult Create()
         {
+            ViewData["TipVozila"] = new SelectList(Enum.GetValues(typeof(TipVozila)).Cast<TipVozila>().Select(v => new { Value = (int)v, Text = v.ToString() }), "Value", "Text");
+            ViewData["Transmisija"] = new SelectList(Enum.GetValues(typeof(Transmisija)).Cast<Transmisija>().Select(v => new { Value = (int)v, Text = v.ToString() }), "Value", "Text");
+            ViewData["VrstaGoriva"] = new SelectList(Enum.GetValues(typeof(VrstaGoriva)).Cast<VrstaGoriva>().Select(v => new { Value = (int)v, Text = v.ToString() }), "Value", "Text");
+            ViewData["TransportniTip"] = new SelectList(Enum.GetValues(typeof(TransportniTip)).Cast<TransportniTip>().Select(v => new { Value = (int)v, Text = v.ToString() }), "Value", "Text");
+            ViewData["PutnickiTip"] = new SelectList(Enum.GetValues(typeof(PutnickiTip)).Cast<PutnickiTip>().Select(v => new { Value = (int)v, Text = v.ToString() }), "Value", "Text");
             return View();
         }
 
         // POST: Vozilo/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Proizvodjac,Model,Cijena,Slika,Opis,Tip,RegistarskeTablice,Navigacija,Transmisija,Gorivo,MaticnaPoslovnicaId")] Vozilo vozilo)
+        public async Task<IActionResult> Create(Vozilo model)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(vozilo);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                try
+                {
+                    _context.Add(model);
+                    await _context.SaveChangesAsync();
+                    Console.WriteLine("Ovo je moja poruka koju želim ispisati u konzoli.");
+                    
+                    return RedirectToAction(nameof(Index));
+                }
+                catch (Exception ex)
+                {
+                    _logger.LogError(ex, "Error occurred while adding Vozilo");
+                    ModelState.AddModelError("", "An error occurred while saving the Vozilo.");
+                }
             }
-            return View(vozilo);
-        }
-    }
 
+            // Ponovno postavljanje dropdown listi u slučaju neuspješne validacije
+            ViewData["TipVozila"] = new SelectList(Enum.GetValues(typeof(TipVozila)).Cast<TipVozila>().Select(v => new SelectListItem { Value = ((int)v).ToString(), Text = v.ToString() }), "Value", "Text");
+            ViewData["Transmisija"] = new SelectList(Enum.GetValues(typeof(Transmisija)).Cast<Transmisija>().Select(v => new SelectListItem { Value = ((int)v).ToString(), Text = v.ToString() }), "Value", "Text");
+            ViewData["VrstaGoriva"] = new SelectList(Enum.GetValues(typeof(VrstaGoriva)).Cast<VrstaGoriva>().Select(v => new SelectListItem { Value = ((int)v).ToString(), Text = v.ToString() }), "Value", "Text");
+            ViewData["MaticnaPoslovnicaId"] = new SelectList(_context.Poslovnice, "Id", "Naziv", model.MaticnaPoslovnicaId);
+
+            // Vratite se na isti pogled kako biste prikazali greške validacije
+            return View(model);
+        }
+
+
+    }
 }
 
 

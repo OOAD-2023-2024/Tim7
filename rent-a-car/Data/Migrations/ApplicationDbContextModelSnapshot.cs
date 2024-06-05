@@ -376,8 +376,9 @@ namespace rent_a_car.Data.Migrations
                     b.Property<double>("Iznos")
                         .HasColumnType("float");
 
-                    b.Property<int>("NarucilacId")
-                        .HasColumnType("int");
+                    b.Property<string>("NarucilacId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("PlacanjeId")
                         .HasColumnType("int");
@@ -403,6 +404,9 @@ namespace rent_a_car.Data.Migrations
 
                     b.Property<double>("Cijena")
                         .HasColumnType("float");
+
+                    b.Property<bool>("Dostupno")
+                        .HasColumnType("bit");
 
                     b.Property<int>("Gorivo")
                         .HasColumnType("int");
@@ -506,6 +510,9 @@ namespace rent_a_car.Data.Migrations
 
                     b.Property<bool?>("Prikolica")
                         .HasColumnType("bit");
+
+                    b.Property<int?>("TransportnoVozilo_Tip")
+                        .HasColumnType("int");
 
                     b.HasDiscriminator().HasValue(2);
                 });
