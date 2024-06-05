@@ -26,7 +26,7 @@ namespace RentACar.Controllers
             if (model == null)
             {
                 TempData["ErrorMessage"] = "Invalid data.";
-                return RedirectToAction("DetaljiVozila", "Vozila", new { id = model.VoziloId });
+                return RedirectToAction("Details", "Vozilo", new { id = model.VoziloId });
             }
 
             var user = await _userManager.GetUserAsync(User);
@@ -39,14 +39,21 @@ namespace RentACar.Controllers
             if (vozilo == null)
             {
                 TempData["ErrorMessage"] = "Invalid vehicle.";
-                return RedirectToAction("DetaljiVozila", "Vozila", new { id = model.VoziloId });
+                return RedirectToAction("Details", "Vozilo", new { id = model.VoziloId });
             }
 
             if (!Enum.TryParse(model.VrstaPlacanja, true, out VrstaPlacanja vrstaPlacanja))
             {
                 TempData["ErrorMessage"] = "Invalid payment method.";
-                return RedirectToAction("DetaljiVozila", "Vozila", new { id = model.VoziloId });
+                return RedirectToAction("Details", "Vozilo", new { id = model.VoziloId });
             }
+
+            if (!vozilo.Dostupno)
+            {
+                TempData["ErrorMessage"] = "Vozilo nije dostupno u odabranom terminu.";
+                return RedirectToAction("Details", "Vozilo", new { id = model.VoziloId });
+            }
+
 
             var rezervacija = new Rezervacija
             {
@@ -77,7 +84,7 @@ namespace RentACar.Controllers
             await _context.SaveChangesAsync();
 
             TempData["SuccessMessage"] = "Reservation created successfully.";
-            return RedirectToAction("DetaljiVozila", "Vozila", new { id = model.VoziloId });
+            return RedirectToAction("Details", "Vozilo", new { id = model.VoziloId });
         }
     }
 }

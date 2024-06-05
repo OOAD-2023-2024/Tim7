@@ -101,6 +101,37 @@
         #deliveryOption {
             display: none;
         }
+
+        .availability {
+            font-weight: bold;
+        }
+
+        .available {
+            color: green;
+        }
+
+        .not-available {
+            color: red;
+        }
+
+        .toast {
+            position: fixed;
+            top: 20px; /* Promenite ovu vrednost po potrebi */
+            right: 20px;
+        }
+
+        .toast.error {
+            background-color: lightpink;
+        }
+
+        .toast.show {
+            opacity: 1;
+        }
+
+        .toast .icon {
+            font-size: 46px;
+        }
+
     </style>
 </head>
 <body>
@@ -174,6 +205,12 @@
                 <td>Price for 24 Hours</td>
                 <td>$@Model.Vozilo.Cijena</td>
             </tr>
+            <tr>
+                <td>Availability</td>
+                <td class="availability @(Model.Vozilo.Dostupno ? "available" : "not-available")">
+                    @(Model.Vozilo.Dostupno ? "Available" : "Not Available")
+                </td>
+            </tr>
         </table>
 
         <div class="reservation-form">
@@ -217,6 +254,19 @@
                 <button type="submit">Confirm</button>
             </form>
         </div>
+        @if (TempData["SuccessMessage"] != null)
+        {
+            <div class="toast success" id="successToast">
+                <span class="icon">✔️</span> @TempData["SuccessMessage"]
+            </div>
+        }
+
+        @if (TempData["ErrorMessage"] != null)
+        {
+            <div class="toast error" id="errorToast">
+                <span class="icon">❌</span> @TempData["ErrorMessage"]
+            </div>
+        }
 
         <script>
             function toggleAddressField() {
@@ -249,10 +299,43 @@
                 }
             }
 
+            document.addEventListener("DOMContentLoaded", function () {
+                const successToast = document.getElementById("successToast");
+                const errorToast = document.getElementById("errorToast");
+
+                if (successToast) {
+                    successToast.classList.add("show");
+                    setTimeout(() => {
+                        successToast.classList.remove("show");
+                    }, 8000);
+                }
+
+                if (errorToast) {
+                    errorToast.classList.add("show");
+                    setTimeout(() => {
+                        errorToast.classList.remove("show");
+                    }, 8000);
+                }
+            });
+
+            document.querySelector("form").addEventListener("submit", function (event) {
+                const isAvailable = @Model.Vozilo.Dostupno;
+
+                if (!isAvailable) {
+                    event.preventDefault();
+                    alert("Vozilo nije dostupno u odabranom terminu.");
+                }
+            });
+
             document.getElementById("DatumPreuzimanja").addEventListener("change", calculateTotalPrice);
             document.getElementById("DatumPovratka").addEventListener("change", calculateTotalPrice);
             document.getElementById("Dostava").addEventListener("change", calculateTotalPrice);
+
+            window.onload = function () {
+                hideToast();
+            };
         </script>
+
     </div>
 </body>
 </html>

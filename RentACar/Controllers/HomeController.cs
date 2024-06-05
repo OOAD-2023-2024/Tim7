@@ -1,23 +1,41 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Identity;
 using RentACar.Data;
 using RentACar.Models;
 using System.Diagnostics;
+using System.Threading.Tasks;
+using System.Linq;
 
 namespace RentACar.Controllers
 {
     public class HomeController : Controller
     {
         private readonly ApplicationDbContext _context;
+        private readonly UserManager<Account> _userManager;
         private readonly ILogger<HomeController> _logger;
 
-        public HomeController(ApplicationDbContext context, ILogger<HomeController> logger)
+        public HomeController(ApplicationDbContext context, UserManager<Account> userManager, ILogger<HomeController> logger)
         {
             _context = context;
+            _userManager = userManager;
             _logger = logger;
         }
 
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
+            var user = await _userManager.GetUserAsync(User);
+            if (user != null)
+            {
+                var roles = await _userManager.GetRolesAsync(user);
+                ViewBag.UserName = user.UserName;
+                ViewBag.Roles = string.Join(", ", roles);
+            }
+            else
+            {
+                ViewBag.UserName = "Not logged in";
+                ViewBag.Roles = "None";
+            }
+
             return View();
         }
 
@@ -28,44 +46,24 @@ namespace RentACar.Controllers
 
         public IActionResult ExploreCars(VoziloPretragaViewModel searchModel)
         {
-            // Example static data for demonstration purposes
             var allCars = _context.Vozila.ToList();
 
-
-            // Filter logic
             if (!string.IsNullOrEmpty(searchModel.SearchTerm))
             {
                 allCars = allCars.Where(c => c.Proizvodjac.Contains(searchModel.SearchTerm, StringComparison.OrdinalIgnoreCase)).ToList();
             }
 
-            if (!string.IsNullOrEmpty(searchModel.SearchTerm) && searchModel.MinCijena.HasValue && searchModel.MaxCijena.HasValue)
-            {
-                allCars = allCars.Where(c => c.Proizvodjac.Contains(searchModel.SearchTerm, StringComparison.OrdinalIgnoreCase)
-                && c.Cijena >= searchModel.MinCijena && c.Cijena <= searchModel.MaxCijena).ToList();
-            }
-
-            if (string.IsNullOrEmpty(searchModel.SearchTerm) && searchModel.MinCijena.HasValue && searchModel.MaxCijena.HasValue)
-            {
-                allCars = allCars.Where(c => c.Cijena >= searchModel.MinCijena && c.Cijena <= searchModel.MaxCijena).ToList();
-            }
-            else if (searchModel.MinCijena.HasValue && string.IsNullOrEmpty(searchModel.SearchTerm))
+            if (searchModel.MinCijena.HasValue)
             {
                 allCars = allCars.Where(c => c.Cijena >= searchModel.MinCijena).ToList();
             }
-            else if (searchModel.MaxCijena.HasValue && string.IsNullOrEmpty(searchModel.SearchTerm))
+
+            if (searchModel.MaxCijena.HasValue)
             {
                 allCars = allCars.Where(c => c.Cijena <= searchModel.MaxCijena).ToList();
             }
 
-            /*if (!string.IsNullOrEmpty(searchModel.Tip))
-            {
-                allCars = allCars.Where(c => c.Tip.Equals(searchModel.Tip)).ToList();
-            }*/
-
-
-
             searchModel.Cars = allCars;
-
             return View(searchModel);
         }
 
@@ -79,7 +77,5 @@ namespace RentACar.Controllers
 
             return View(car);
         }
-
-
     }
 }

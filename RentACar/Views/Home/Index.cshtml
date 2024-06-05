@@ -121,6 +121,7 @@
     </style>
 </head>
 <body>
+    
     <section id="home" class="hero">
         <div class="container">
             <h1>Your Journey Begins Here</h1>
@@ -128,6 +129,12 @@
             <a href="@Url.Action("ExploreCars", "Home")" class="btn">Explore Cars</a>
         </div>
     </section>
+
+    @if (User.IsInRole("Dostavljac"))
+    {
+        <a href="@Url.Action("PregledDostava", "Dostava")" class="btn">Pregled dostava</a>
+    }
+
 
     <section id="services" class="services">
         <div class="container">
