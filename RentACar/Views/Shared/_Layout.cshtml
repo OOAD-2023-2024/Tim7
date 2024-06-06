@@ -11,14 +11,15 @@
     <style>
         .text-orange {
             color: #FFA500;
-        }</style>
-
+        }
+    </style>
 </head>
 <body>
     <header>
         <nav class="navbar navbar-expand-lg style="background-color: #f8f9fa;">
             <div class="container">
                 <a class="navbar-brand style = text-orange" href="/">Home</a>
+              
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -28,13 +29,14 @@
                             var isAuthenticated = User.Identity.IsAuthenticated;
                         }
                         @if (isAuthenticated)
-                        {
+                        {  
+                            <a href="/Rezervacija/MojeRezervacije" class="btn btn-link text-orange">My Rents</a>
                             <li class="nav-item">
-                                <a class="nav-link style = text-orange" href="/Account/MyAccount">My Account</a>
+                                <a class="nav-link style=text-orange" href="/Account/MyAccount">My Account</a>
                             </li>
                             <li class="nav-item">
                                 <form asp-controller="Account" asp-action="Logout" method="post" class="form-inline">
-                                    <button type="submit" class="btn btn-link nav-link style = text-orange">Log Out</button>
+                                    <button type="submit" class="btn btn-link nav-link style=text-orange">Log Out</button>
                                 </form>
                             </li>
                         }

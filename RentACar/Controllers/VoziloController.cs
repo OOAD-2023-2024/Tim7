@@ -38,11 +38,16 @@ namespace RentACar.Controllers
                 return NotFound(); // Ako poslovnica nije pronađena, vraćamo Not Found
             }*/
 
-            // Prikazivanje detalja vozila i povezane poslovnice u pogledu
+           
+
+            var rezervacije = _context.Rezervacije.Where(r => r.VoziloId == id).ToList();
+
             var model = new DetaljiVozilaViewModel
             {
                 Vozilo = vozilo,
-                Poslovnica = poslovnica
+                Poslovnica = poslovnica,
+
+                Rezervacije = rezervacije
             };
 
             return View(model);

@@ -31,6 +31,10 @@ options => {
  .AddRoles<IdentityRole>()
 .AddEntityFrameworkStores<ApplicationDbContext>();*/
 
+// Add background service
+builder.Services.AddHostedService<AutoDeleteService>();
+
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

@@ -118,19 +118,34 @@
             position: fixed;
             top: 20px; /* Promenite ovu vrednost po potrebi */
             right: 20px;
+            z-index: 9999; /* Postavljanje z-index-a kako bi bili iznad ostalih elemenata */
+            display: flex;
+            align-items: center;
+            padding: 12px 20px;
+            border-radius: 8px;
+            font-family: Arial, sans-serif;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: opacity 0.3s ease;
         }
 
-        .toast.error {
-            background-color: lightpink;
-        }
+            .toast.error {
+                background-color: lightpink;
+                color: #c7254e; /* Boja teksta za grešku */
+            }
 
-        .toast.show {
-            opacity: 1;
-        }
+            .toast.success {
+                background-color: lightgreen;
+                color: #228B22; /* Boja teksta za uspjeh */
+            }
 
-        .toast .icon {
-            font-size: 46px;
-        }
+            .toast .icon {
+                margin-right: 10px;
+                font-size: 20px;
+            }
+
+            .toast.show {
+                opacity: 1;
+            }
 
     </style>
 </head>
@@ -207,8 +222,19 @@
             </tr>
             <tr>
                 <td>Availability</td>
-                <td class="availability @(Model.Vozilo.Dostupno ? "available" : "not-available")">
-                    @(Model.Vozilo.Dostupno ? "Available" : "Not Available")
+                <td @if (Model.Rezervacije != null && Model.Rezervacije.Any())
+                {
+                        <ul>
+                        @foreach (var rezervacija in Model.Rezervacije)
+                        {
+                             <li>Not available from @rezervacija.DatumPreuzimanja.ToShortDateString() to @rezervacija.DatumPovratka.ToShortDateString()</li>
+                        }
+                         </ul>
+                }
+                else
+                {
+                    <p>Available</p>
+                }
                 </td>
             </tr>
         </table>
@@ -295,7 +321,7 @@
                         totalPrice += deliveryPrice;
                     }
 
-                    document.getElementById("Iznos").value = totalPrice.toFixed(2);
+                    document.getElementById("Iznos").value = totalPrice;
                 }
             }
 

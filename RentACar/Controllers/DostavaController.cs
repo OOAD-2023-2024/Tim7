@@ -1,6 +1,7 @@
 ﻿using System.Linq;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using RentACar.Data;
 using RentACar.Models;
 
@@ -18,14 +19,29 @@ namespace RentACar.Controllers
 
         public IActionResult PregledDostava()
         {
-            var dostave = _context.Dostave.ToList();
-            return View(dostave);
+            var pendingDostave = _context.Dostave
+                .Include(d => d.Narudzba)
+                .Where(d => !d.Prihvacena)
+                .ToList();
+
+            var acceptedDostave = _context.Dostave
+                .Include(d => d.Narudzba)
+                .Where(d => d.Prihvacena)
+                .ToList();
+
+            var model = new PregledDostavaViewModel
+            {
+                PendingDostave = pendingDostave,
+                AcceptedDostave = acceptedDostave
+            };
+
+            return View(model);
         }
 
         [HttpPost]
         public IActionResult PrihvatiDostavu(int id)
         {
-            var dostava = _context.Dostave.FirstOrDefault(d => d.Id == id);
+            var dostava = _context.Dostave.Include(d => d.Narudzba).FirstOrDefault(d => d.Id == id);
             if (dostava != null)
             {
                 dostava.PrihvatiDostavu();
@@ -37,14 +53,36 @@ namespace RentACar.Controllers
         [HttpPost]
         public IActionResult OdbijDostavu(int id)
         {
-            var dostava = _context.Dostave.FirstOrDefault(d => d.Id == id);
+            var dostava = _context.Dostave.Include(d => d.Narudzba).FirstOrDefault(d => d.Id == id);
             if (dostava != null)
             {
+                // Dohvati vozilo koristeći VoziloId
+                var vozilo = _context.Vozila.FirstOrDefault(v => v.Id == dostava.Narudzba.VoziloId);
+                if (vozilo != null)
+                {
+                    vozilo.Dostupno = true;
+                    _context.Vozila.Update(vozilo);
+                }
+
+                // Brisanje rezervacije
+                var rezervacija = dostava.Narudzba;
+                if (rezervacija != null)
+                {
+                    _context.Rezervacije.Remove(rezervacija);
+                }
+
+                // Brisanje dostave
                 _context.Dostave.Remove(dostava);
+
                 _context.SaveChanges();
             }
             return RedirectToAction(nameof(PregledDostava));
         }
     }
-}
 
+    public class PregledDostavaViewModel
+    {
+        public List<Dostava> PendingDostave { get; set; }
+        public List<Dostava> AcceptedDostave { get; set; }
+    }
+}

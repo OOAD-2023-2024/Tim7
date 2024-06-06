@@ -1,46 +1,67 @@
-﻿@model List<RentACar.Models.Dostava>
+﻿@model RentACar.Controllers.PregledDostavaViewModel
 
 @{
     ViewData["Title"] = "Pregled Dostava";
 }
 
-<h1>Pregled Dostava</h1>
-
+<h2>Pending deliveries</h2>
 <table class="table">
     <thead>
         <tr>
             <th>Id</th>
-            <th>Narudžba Id</th>
-            <th>Dostavljač</th>
             <th>Adresa</th>
-            <th>Prihvaćena</th>
-            <th></th>
-            <th></th>
+            <th>Datum Preuzimanja</th>
+            <th>Datum Povratka</th>
+            <th>Iznos</th>
+            <th>Akcija</th>
         </tr>
     </thead>
     <tbody>
-        @foreach (var dostava in Model)
+        @foreach (var dostava in Model.PendingDostave)
         {
             <tr>
                 <td>@dostava.Id</td>
-               <td>@dostava.Narudzba</td>
-
-                <td>@(dostava.Dostavljac != null ? dostava.Dostavljac.Ime + " " + dostava.Dostavljac.Prezime : "-")</td>
                 <td>@dostava.Adresa</td>
-                <td>@(dostava.Prihvacena ? "Da" : "Ne")</td>
+                <td>@dostava.Narudzba?.DatumPreuzimanja.ToShortDateString()</td>
+                <td>@dostava.Narudzba?.DatumPovratka.ToShortDateString()</td>
+                <td>@dostava.Narudzba?.Iznos</td>
                 <td>
-                    @if (!dostava.Prihvacena)
-                    {
-                        <form asp-action="PrihvatiDostavu" asp-route-id="@dostava.Id" method="post">
-                            <button type="submit" class="btn btn-primary">Prihvati</button>
-                        </form>
-                    }
-                </td>
-                <td>
-                    <form asp-action="OdbijDostavu" asp-route-id="@dostava.Id" method="post">
+                    <form asp-action="PrihvatiDostavu" method="post">
+                        <input type="hidden" name="id" value="@dostava.Id" />
+                        <button type="submit" class="btn btn-success">Prihvati</button>
+                    </form>
+                    </td>
+                    <td>
+                    <form asp-action="OdbijDostavu" method="post">
+                        <input type="hidden" name="id" value="@dostava.Id" />
                         <button type="submit" class="btn btn-danger">Odbij</button>
                     </form>
                 </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<h2>Accepted deliveries</h2>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Adress</th>
+            <th>Delievry date and time</th>
+            <th>DReturn Date and Time</th>
+            <th>Iznos</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var dostava in Model.AcceptedDostave)
+        {
+            <tr>
+                <td>@dostava.Id</td>
+                <td>@dostava.Adresa</td>
+                <td>@dostava.Narudzba?.DatumPreuzimanja.ToShortDateString()</td>
+                <td>@dostava.Narudzba?.DatumPovratka.ToShortDateString()</td>
+                <td>@dostava.Narudzba?.Iznos</td>
             </tr>
         }
     </tbody>

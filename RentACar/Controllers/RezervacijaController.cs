@@ -1,8 +1,10 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using RentACar.Data;
 using RentACar.Models;
+using RentACar.ViewModels;
 using System;
 using System.Threading.Tasks;
 
@@ -48,13 +50,20 @@ namespace RentACar.Controllers
                 return RedirectToAction("Details", "Vozilo", new { id = model.VoziloId });
             }
 
-            if (!vozilo.Dostupno)
+            // Provjeravamo dostupnost vozila za odabrane datume
+            var rezervacijeZaVozilo = await _context.Rezervacije
+                .Where(r => r.VoziloId == model.VoziloId &&
+                            r.DatumPovratka > model.DatumPreuzimanja &&
+                            r.DatumPreuzimanja < model.DatumPovratka)
+                .ToListAsync();
+
+            if (rezervacijeZaVozilo.Any())
             {
-                TempData["ErrorMessage"] = "Vozilo nije dostupno u odabranom terminu.";
+                TempData["ErrorMessage"] = "Vehicle is not available for the selected dates.";
                 return RedirectToAction("Details", "Vozilo", new { id = model.VoziloId });
             }
 
-
+            // Kreiranje nove rezervacije
             var rezervacija = new Rezervacija
             {
                 DatumRezervacije = DateTime.Now,
@@ -70,11 +79,13 @@ namespace RentACar.Controllers
             _context.Rezervacije.Add(rezervacija);
             _context.Vozila.Update(vozilo);
 
+            await _context.SaveChangesAsync();
+
             if (model.Dostava != null && !string.IsNullOrEmpty(model.Dostava.Adresa))
             {
                 var dostava = new Dostava
                 {
-                    Narudzba = rezervacija,
+                    NarudzbaId = rezervacija.Id,
                     Adresa = model.Dostava.Adresa,
                     Prihvacena = false
                 };
@@ -86,5 +97,83 @@ namespace RentACar.Controllers
             TempData["SuccessMessage"] = "Reservation created successfully.";
             return RedirectToAction("Details", "Vozilo", new { id = model.VoziloId });
         }
+
+
+        public async Task<IActionResult> MojeRezervacije()
+        {
+            var user = await _userManager.GetUserAsync(User);
+            if (user == null)
+            {
+                return Unauthorized();
+            }
+
+            var rezervacije = await _context.Rezervacije
+                .Where(r => r.Narucilac.Id == user.Id)
+                .Select(r => new MojeRezervacijeViewModel
+                {
+                    Rezervacija = r,
+                    Vozilo = _context.Vozila.FirstOrDefault(v => v.Id == r.VoziloId),
+                    Dostava = _context.Dostave.FirstOrDefault(d => d.NarudzbaId == r.Id)
+                })
+                .ToListAsync();
+
+            return View(rezervacije);
+        }
+
+
+        [HttpPost]
+        public async Task<IActionResult> OtkaziRezervaciju(int id)
+        {
+            var user = await _userManager.GetUserAsync(User);
+            if (user == null)
+            {
+                return Unauthorized();
+            }
+
+            var rezervacija = await _context.Rezervacije
+      .FirstOrDefaultAsync(r => r.Id == id && r.Narucilac.Id == user.Id);
+            var dostava = _context.Dostave.Include(d => d.Narudzba).FirstOrDefault(d => d.Narudzba.Id == id); // Ovdje promijenite uslov
+
+            if (rezervacija == null)
+            {
+                TempData["ErrorMessageForMojeRezervacije"] = "Rezervacija nije pronađena.";
+                return RedirectToAction("MojeRezervacije");
+            }
+
+            /*if (dostava == null)
+            {
+                TempData["ErrorMessage"] = "Dostava nije pronađena.";
+                return RedirectToAction("MojeRezervacije");
+            }*/
+
+            var currentTime = DateTime.Now;
+            var reservationTime = rezervacija.DatumRezervacije;
+
+            if ((currentTime - reservationTime).TotalHours > 72)
+            {
+                TempData["ErrorMessageForMojeRezervacije"] = "Rezervacija se može otkazati samo u roku od 72 sata od trenutka pravljenja.";
+                return RedirectToAction("MojeRezervacije");
+            }
+
+            var vozilo = await _context.Vozila.FirstOrDefaultAsync(v => v.Id == rezervacija.VoziloId);
+            if (vozilo != null)
+            {
+                vozilo.Dostupno = true;
+                _context.Vozila.Update(vozilo);
+            }
+
+            _context.Rezervacije.Remove(rezervacija);
+            if (dostava != null)
+            {
+                _context.Dostave.Remove(dostava);
+            }
+            await _context.SaveChangesAsync();
+
+            TempData["SuccessMessageForMojeRezervacije"] = "Rezervacija je uspješno otkazana.";
+            return RedirectToAction("MojeRezervacije");
+
+        }
+
     }
 }
+
