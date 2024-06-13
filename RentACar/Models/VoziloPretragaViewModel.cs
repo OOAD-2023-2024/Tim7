@@ -6,8 +6,10 @@
         public double? MinCijena { get; set; }
         public double? MaxCijena { get; set; }
         public string Model { get; set; }
-        public TipVozila Tip { get; set; } // Passenger or Commercial
+        public TipVozila Tip { get; set; } 
+        public Vozilo Vozilo { get; set; }  
         public List<Vozilo> Cars { get; set; } = new List<Vozilo>();
+        public string SortBy { get; set; }
     }
 }
 

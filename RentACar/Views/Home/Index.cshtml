@@ -118,6 +118,23 @@
             text-align: center;
             padding: 1rem 0;
         }
+
+        .custom-button {
+            background-color: #ff5722; /* Narandžasta pozadina */
+            color: white; /* Bela slova */
+            border: none; /* Bez okvira */
+            justify-content: center;
+            align-items: center;
+            width: 100%; /* Širina kao roditelj */
+            max-width: 1200px; /* Maksimalna širina */
+            margin-top: 20px; /* Razmak od vrha */
+        }
+
+        .center-button-container {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start; /* Početak vertikalnog centriranja */
+        }
     </style>
 </head>
 
@@ -133,7 +150,9 @@
 
     @if (User.IsInRole("Dostavljac"))
     {
-        <a href="@Url.Action("PregledDostava", "Dostava")" class="btn">Pregled dostava</a>
+        <div class="container center-button">
+            <a href="@Url.Action("PregledDostava", "Dostava")" class="btn custom-button">Pregled dostava</a>
+        </div>
     }
 
 

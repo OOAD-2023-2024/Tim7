@@ -17,9 +17,15 @@ namespace RentACar.Models
         [Display(Name = "Confirm password")]
         [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
         public string ConfirmPassword { get; set; }
-
+        [Required]
+        [Display(Name = "Ime")]
         public string Ime { get; set; }
+        [Required]
+        [Display(Name = "Prezime")]
         public string Prezime { get; set; }
+        [Required]
+        [Phone]
+        [Display(Name = "Broj Telefona")]
         public string BrojTelefona { get; set; }
     }
 

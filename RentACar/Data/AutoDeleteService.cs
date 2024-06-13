@@ -22,16 +22,16 @@ public class AutoDeleteService : BackgroundService
             {
                 var dbContext = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
 
-                // Provera isteka vremena za sve rezervacije
+                
                 var expiredReservations = await dbContext.Rezervacije
                     .Where(r => r.DatumPovratka < DateTime.Now).ToListAsync();
 
                 foreach (var reservation in expiredReservations)
                 {
-                    // Izbriši rezervaciju
+                    
                     dbContext.Rezervacije.Remove(reservation);
 
-                    // Ako postoji pripadajuća dostava, izbriši je
+                    
                     var delivery = await dbContext.Dostave.FirstOrDefaultAsync(d => d.NarudzbaId == reservation.Id);
                     if (delivery != null)
                     {
@@ -42,7 +42,7 @@ public class AutoDeleteService : BackgroundService
                 await dbContext.SaveChangesAsync();
             }
 
-            await Task.Delay(TimeSpan.FromMinutes(10), stoppingToken); // Provera svakih 30 minuta
+            await Task.Delay(TimeSpan.FromMinutes(30), stoppingToken); 
         }
     }
 }

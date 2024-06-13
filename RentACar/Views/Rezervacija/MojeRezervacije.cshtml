@@ -2,7 +2,8 @@
 
 
 
-<h1>Moje Rezervacije</h1>
+<h1>My Rents</h1>
+
 @if (TempData["SuccessMessageForMojeRezervacije"] != null)
 {
     <div class="toast success" id="successToastForMojeRezervacije">
@@ -21,12 +22,12 @@
 <table class="table">
     <thead>
         <tr>
-            <th>Vozilo</th>
-            <th>Datum Preuzimanja</th>
-            <th>Datum Povratka</th>
-            <th>Iznos</th>
-            <th>Dostava</th>
-            <th>Otkazivanje</th> 
+            <th>Vehicle</th>
+            <th>Pickup date</th>
+            <th>Return date</th>
+            <th>Total amount</th>
+            <th>Delivery</th>
+            <th>Cancellation</th>
         </tr>
     </thead>
     <tbody>
@@ -34,10 +35,10 @@
         {
             <tr>
                 <td>@item.Vozilo.Proizvodjac @item.Vozilo.Model</td>
-                <td>@item.Rezervacija.DatumPreuzimanja.ToShortDateString()</td>
-                <td>@item.Rezervacija.DatumPovratka.ToShortDateString()</td>
-                <td>@item.Rezervacija.Iznos</td>
-                <td>@(item.Dostava != null ? item.Dostava.Adresa : "Nema dostave")</td>
+                <td>@item.Rezervacija.DatumPreuzimanja.ToString("dd.MM.yyyy HH:mm")</td>
+                <td>@item.Rezervacija.DatumPovratka.ToString("dd.MM.yyyy HH:mm")</td>
+                <td>@item.Rezervacija.Iznos $</td>
+                <td>@(item.Dostava != null ? item.Dostava.Adresa : "No delivery")</td>
                 <td>
                     <form asp-action="OtkaziRezervaciju" method="post">
                         <input type="hidden" name="id" value="@item.Rezervacija.Id" />
@@ -52,9 +53,9 @@
 <style>
     .toast {
         position: fixed;
-        top: 20px; /* Promenite ovu vrednost po potrebi */
+        top: 20px; 
         right: 20px;
-        z-index: 9999; /* Postavljanje z-index-a kako bi bili iznad ostalih elemenata */
+        z-index: 9999; 
         display: flex;
         align-items: center;
         padding: 12px 20px;

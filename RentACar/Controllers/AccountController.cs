@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Identity;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using RentACar.Models;
 
@@ -41,6 +42,45 @@ namespace RentACar.Controllers
             return View(model);
         }
 
+        [HttpGet]
+        public IActionResult Register()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Register(RegisterViewModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                var user = new Account
+                {
+                    UserName = model.Email,
+                    Email = model.Email,
+                    Ime = model.Ime,
+                    Prezime = model.Prezime,
+                    BrojTelefona = model.BrojTelefona,
+                    EmailConfirmed = true
+                };
+                var result = await _userManager.CreateAsync(user, model.Password);
+                if (result.Succeeded)
+                {
+                    var roleResult = await _userManager.AddToRoleAsync(user, "Korisnik");
+                    
+
+                    await _signInManager.SignInAsync(user, isPersistent: false);
+                    return RedirectToAction("Index", "Home");
+                }
+                foreach (var error in result.Errors)
+                {
+                    ModelState.AddModelError(string.Empty, error.Description);
+                }
+            }
+
+            return View(model);
+        }
+
         [HttpPost]
         public async Task<IActionResult> Logout()
         {
@@ -57,9 +97,10 @@ namespace RentACar.Controllers
             }
 
             var model = new MyAccountViewModel
-            {
+            {   
+                Ime = user.Ime,
+                Prezime = user.Prezime,
                 Email = user.Email
-                // Add other user information as needed
             };
 
             return View(model);

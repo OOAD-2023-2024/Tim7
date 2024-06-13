@@ -76,7 +76,7 @@ namespace RentACar.Controllers
             {
                 _context.Add(vozilo);
                 await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index)); // Ovo preusmjerava na akciju koja prikazuje listu vozila
+                return RedirectToAction("ExploreCars", "Home"); // Ovo preusmjerava na akciju ExploreCars u Home kontroleru
             }
             return View(vozilo);
         }

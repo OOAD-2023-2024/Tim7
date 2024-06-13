@@ -9,11 +9,11 @@
     <thead>
         <tr>
             <th>Id</th>
-            <th>Adresa</th>
-            <th>Datum Preuzimanja</th>
-            <th>Datum Povratka</th>
-            <th>Iznos</th>
-            <th>Akcija</th>
+            <th>Adress</th>
+            <th>Pickup Date </th>
+            <th>Return Date</th>
+            <th>Total price</th>
+            <th>Action</th>
         </tr>
     </thead>
     <tbody>
@@ -22,8 +22,8 @@
             <tr>
                 <td>@dostava.Id</td>
                 <td>@dostava.Adresa</td>
-                <td>@dostava.Narudzba?.DatumPreuzimanja.ToShortDateString()</td>
-                <td>@dostava.Narudzba?.DatumPovratka.ToShortDateString()</td>
+                <td>@dostava.Narudzba?.DatumPreuzimanja.ToString("dd.MM.yyyy HH:mm")</td>
+                <td>@dostava.Narudzba?.DatumPovratka.ToString("dd.MM.yyyy HH:mm")</td>
                 <td>@dostava.Narudzba?.Iznos</td>
                 <td>
                     <form asp-action="PrihvatiDostavu" method="post">
@@ -48,9 +48,9 @@
         <tr>
             <th>Id</th>
             <th>Adress</th>
-            <th>Delievry date and time</th>
-            <th>DReturn Date and Time</th>
-            <th>Iznos</th>
+            <th>Delievry date</th>
+            <th>Return Date</th>
+            <th>Total amount</th>
         </tr>
     </thead>
     <tbody>
@@ -59,9 +59,9 @@
             <tr>
                 <td>@dostava.Id</td>
                 <td>@dostava.Adresa</td>
-                <td>@dostava.Narudzba?.DatumPreuzimanja.ToShortDateString()</td>
-                <td>@dostava.Narudzba?.DatumPovratka.ToShortDateString()</td>
-                <td>@dostava.Narudzba?.Iznos</td>
+                <td>@dostava.Narudzba?.DatumPreuzimanja.ToString("dd.MM.yyyy HH:mm")</td>
+                <td>@dostava.Narudzba?.DatumPovratka.ToString("dd.MM.yyyy HH:mm")</td>
+                <td>@dostava.Narudzba?.Iznos $</td>
             </tr>
         }
     </tbody>

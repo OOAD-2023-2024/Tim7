@@ -104,12 +104,16 @@
                 <input asp-for="BrojSjedista" class="form-control" />
                 <span asp-validation-for="BrojSjedista" class="text-danger"></span>
             </div>
-            
+
             <div class="form-group">
-                <label for="Tempomat" class="control-label">Cruise Control:</label>
-                <input type="checkbox" id="Tempomat" name="Tempomat" class="form-check-input" />
+                <label for="Tempomat" class="control-label">Tempomat:</label>
+                <input id="Tempomat" name="Tempomat" class="form-check-input" type="checkbox" value="true" />
+                <input type="hidden" name="Tempomat" value="false" />
                 <span asp-validation-for="Tempomat" class="text-danger"></span>
             </div>
+
+
+
             
             <div class="form-group">
                 <label asp-for="TransportnoVozilo_Tip" class="control-label">Commercial Vehicle Type:</label>
@@ -128,7 +132,7 @@
                 <span asp-validation-for="Nosivost" class="text-danger"></span>
             </div>
 
-            <div class="form-group">
+            <div class="form-group"> 
                 <label asp-for="Duzina" class="control-label">Length:</label>
                 <input asp-for="Duzina" class="form-control" />
                 <span asp-validation-for="Duzina" class="text-danger"></span>
@@ -136,7 +140,8 @@
 
             <div class="form-group">
                 <label for="Prikolica" class="control-label">Trailer:</label>
-                <input type="checkbox" id="Prikolica" name="Prikolica" class="form-check-input" />
+                <input id="Prikolica" name="Prikolica" class="form-check-input" type="checkbox" value="true" />
+                <input type="hidden" name="Prikolica" value="false" />
                 <span asp-validation-for="Prikolica" class="text-danger"></span>
             </div>
 
@@ -147,9 +152,7 @@
     </div>
 </div>
 
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
+
 
 @section Scripts {
     @{

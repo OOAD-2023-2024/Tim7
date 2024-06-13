@@ -168,12 +168,36 @@
             </tr>
             <tr>
                 <td>Fuel</td>
-                <td>@Model.Vozilo.Gorivo</td>
+                <td>
+                    @if (Model.Vozilo.Gorivo == VrstaGoriva.BENZIN)
+                    {
+                        <text>Petrol</text>
+                    }
+                    else if (Model.Vozilo.Gorivo == VrstaGoriva.DIZEL)
+                    {
+                        <text>Diesel</text>
+                    }
+                    else if (Model.Vozilo.Gorivo == VrstaGoriva.HIBRID)
+                    {
+                        <text>Hybrid</text>
+                    }
+                </td>
             </tr>
+
             <tr>
                 <td>Transmission</td>
-                <td>@Model.Vozilo.Transmisija</td>
+                <td>
+                    @if (Model.Vozilo.Transmisija == Transmisija.MANUELNI)
+                    {
+                        <text>Manual</text>
+                    }
+                    else if (Model.Vozilo.Transmisija == Transmisija.AUTOMATIK)
+                    {
+                        <text>Automatic</text>
+                    }
+                </td>
             </tr>
+
             <tr>
                 <td>Navigation</td>
                 <td>@(Model.Vozilo.Navigacija ? "Yes" : "No")</td>
@@ -183,6 +207,31 @@
 
                 if (Model.Vozilo != null)
                 {
+                    <tr>
+                        <td>Type</td>
+                        <td>
+                            @if (Model.Vozilo.PutnickoVozilo_Tip == PutnickiTip.LIMUZINA)
+                            {
+                                <text>Limousine</text>
+                            }
+                            else if (Model.Vozilo.PutnickoVozilo_Tip == PutnickiTip.KARAVAN)
+                            {
+                                <text>Wagon</text>
+                            }
+                            else if (Model.Vozilo.PutnickoVozilo_Tip == PutnickiTip.SUV)
+                            {
+                                <text>SUV</text>
+                            }
+                            else if (Model.Vozilo.PutnickoVozilo_Tip == PutnickiTip.PICKUP)
+                            {
+                                <text>Pickup</text>
+                            }
+                            else if (Model.Vozilo.PutnickoVozilo_Tip == PutnickiTip.KUPE)
+                            {
+                                <text>Coupe</text>
+                            }
+                        </td>
+                    </tr>
                     <tr>
                         <td>Tempomat</td>
                         <td>@(Model.Vozilo.Tempomat.HasValue ? (Model.Vozilo.Tempomat.Value ? "Yes" : "No") : "-")</td>
@@ -199,8 +248,21 @@
                 if (Model.Vozilo != null)
                 {
                     <tr>
-                        <td>Vehicle Type</td>
-                        <td>@Model.Vozilo.Tip</td>
+                        <td>Type</td>
+                        <td>
+                            @if (Model.Vozilo.TransportnoVozilo_Tip == TransportniTip.KAMION)
+                            {
+                                <text>Truck</text>
+                            }
+                            else if (Model.Vozilo.TransportnoVozilo_Tip == TransportniTip.KOMBI)
+                            {
+                                <text>Van</text>
+                            }
+                            else if (Model.Vozilo.TransportnoVozilo_Tip == TransportniTip.SLEPER)
+                            {
+                                <text>Semi-trailer</text>
+                            }
+                        </td>
                     </tr>
                     <tr>
                         <td>Load Capacity</td>
