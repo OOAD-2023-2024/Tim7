@@ -3,6 +3,10 @@
   "WorkspaceRootPath": "C:\\Users\\Korisnik\\Desktop\\Tim7\\RentACar\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{F87D2497-DF22-4514-A862-1E0AA8A516AD}|RentACar.csproj|c:\\users\\korisnik\\desktop\\tim7\\rentacar\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{F87D2497-DF22-4514-A862-1E0AA8A516AD}|RentACar.csproj|solutionrelative:appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{F87D2497-DF22-4514-A862-1E0AA8A516AD}|RentACar.csproj|c:\\users\\korisnik\\desktop\\tim7\\rentacar\\views\\vozilo\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{F87D2497-DF22-4514-A862-1E0AA8A516AD}|RentACar.csproj|solutionrelative:views\\vozilo\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
@@ -45,10 +49,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{F87D2497-DF22-4514-A862-1E0AA8A516AD}|RentACar.csproj|c:\\users\\korisnik\\desktop\\tim7\\rentacar\\models\\rezervacija.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{F87D2497-DF22-4514-A862-1E0AA8A516AD}|RentACar.csproj|solutionrelative:models\\rezervacija.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F87D2497-DF22-4514-A862-1E0AA8A516AD}|RentACar.csproj|c:\\users\\korisnik\\desktop\\tim7\\rentacar\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{F87D2497-DF22-4514-A862-1E0AA8A516AD}|RentACar.csproj|solutionrelative:appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{F87D2497-DF22-4514-A862-1E0AA8A516AD}|RentACar.csproj|c:\\users\\korisnik\\desktop\\tim7\\rentacar\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -166,11 +166,11 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 14,
+          "SelectedChildIndex": 29,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 6,
               "Title": "MojeRezervacije.cshtml",
               "DocumentMoniker": "C:\\Users\\Korisnik\\Desktop\\Tim7\\RentACar\\Views\\Rezervacija\\MojeRezervacije.cshtml",
               "RelativeDocumentMoniker": "Views\\Rezervacija\\MojeRezervacije.cshtml",
@@ -178,8 +178,7 @@
               "RelativeToolTip": "Views\\Rezervacija\\MojeRezervacije.cshtml",
               "ViewState": "AQIAAAkAAAAAAAAAAAAAAAQAAAAMAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-06-06T20:19:17.5Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-06-06T20:19:17.5Z"
             },
             {
               "$type": "Document",
@@ -195,7 +194,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 9,
               "Title": "Details.cshtml",
               "DocumentMoniker": "C:\\Users\\Korisnik\\Desktop\\Tim7\\RentACar\\Views\\Vozilo\\Details.cshtml",
               "RelativeDocumentMoniker": "Views\\Vozilo\\Details.cshtml",
@@ -203,12 +202,11 @@
               "RelativeToolTip": "Views\\Vozilo\\Details.cshtml",
               "ViewState": "AQIAAHsBAAAAAAAAAAAkwDkBAAAvAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-06-03T16:58:27.176Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-06-03T16:58:27.176Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 11,
               "Title": "Rezervacija.cs",
               "DocumentMoniker": "C:\\Users\\Korisnik\\Desktop\\Tim7\\RentACar\\Models\\Rezervacija.cs",
               "RelativeDocumentMoniker": "Models\\Rezervacija.cs",
@@ -216,12 +214,11 @@
               "RelativeToolTip": "Models\\Rezervacija.cs",
               "ViewState": "AQIAAAUAAAAAAAAAAAAxwAoAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-03T14:44:51.4Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-06-03T14:44:51.4Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "PregledDostava.cshtml",
               "DocumentMoniker": "C:\\Users\\Korisnik\\Desktop\\Tim7\\RentACar\\Views\\Dostava\\PregledDostava.cshtml",
               "RelativeDocumentMoniker": "Views\\Dostava\\PregledDostava.cshtml",
@@ -229,8 +226,7 @@
               "RelativeToolTip": "Views\\Dostava\\PregledDostava.cshtml",
               "ViewState": "AQIAACoAAAAAAAAAAAAAAD8AAAAuAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-06-05T18:19:44.42Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-06-05T18:19:44.42Z"
             },
             {
               "$type": "Document",
@@ -258,7 +254,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 10,
               "Title": "RezervacijaController.cs",
               "DocumentMoniker": "C:\\Users\\Korisnik\\Desktop\\Tim7\\RentACar\\Controllers\\RezervacijaController.cs",
               "RelativeDocumentMoniker": "Controllers\\RezervacijaController.cs",
@@ -266,8 +262,7 @@
               "RelativeToolTip": "Controllers\\RezervacijaController.cs",
               "ViewState": "AQIAAIEAAAAAAAAAAAAmwKIAAAANAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-03T22:49:40.04Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-06-03T22:49:40.04Z"
             },
             {
               "$type": "Document",
@@ -343,20 +338,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "Create.cshtml",
               "DocumentMoniker": "C:\\Users\\Korisnik\\Desktop\\Tim7\\RentACar\\Views\\Vozilo\\Create.cshtml",
               "RelativeDocumentMoniker": "Views\\Vozilo\\Create.cshtml",
               "ToolTip": "C:\\Users\\Korisnik\\Desktop\\Tim7\\RentACar\\Views\\Vozilo\\Create.cshtml",
               "RelativeToolTip": "Views\\Vozilo\\Create.cshtml",
-              "ViewState": "AQIAAGcAAAAAAAAAAAAswHYAAABkAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAHYAAABkAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2024-06-03T17:19:33.149Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "VoziloController.cs",
               "DocumentMoniker": "C:\\Users\\Korisnik\\Desktop\\Tim7\\RentACar\\Controllers\\VoziloController.cs",
               "RelativeDocumentMoniker": "Controllers\\VoziloController.cs",
@@ -364,8 +359,7 @@
               "RelativeToolTip": "Controllers\\VoziloController.cs",
               "ViewState": "AQIAADkAAAAAAAAAAAAYwE4AAAAoAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-03T17:03:58.156Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-06-03T17:03:58.156Z"
             },
             {
               "$type": "Document",
@@ -381,7 +375,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 7,
               "Title": "MyAccount.cshtml",
               "DocumentMoniker": "C:\\Users\\Korisnik\\Desktop\\Tim7\\RentACar\\Views\\Account\\MyAccount.cshtml",
               "RelativeDocumentMoniker": "Views\\Account\\MyAccount.cshtml",
@@ -389,12 +383,11 @@
               "RelativeToolTip": "Views\\Account\\MyAccount.cshtml",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAAZAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-06-03T16:38:19.95Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-06-03T16:38:19.95Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 8,
               "Title": "MyAccountViewModel.cs",
               "DocumentMoniker": "C:\\Users\\Korisnik\\Desktop\\Tim7\\RentACar\\Models\\MyAccountViewModel.cs",
               "RelativeDocumentMoniker": "Models\\MyAccountViewModel.cs",
@@ -402,8 +395,7 @@
               "RelativeToolTip": "Models\\MyAccountViewModel.cs",
               "ViewState": "AQIAAAUAAAAAAAAAAAAAwBoAAAApAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-03T16:34:56.362Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-06-03T16:34:56.362Z"
             },
             {
               "$type": "Document",
@@ -467,7 +459,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "HomeController.cs",
               "DocumentMoniker": "C:\\Users\\Korisnik\\Desktop\\Tim7\\RentACar\\Controllers\\HomeController.cs",
               "RelativeDocumentMoniker": "Controllers\\HomeController.cs",
@@ -475,8 +467,7 @@
               "RelativeToolTip": "Controllers\\HomeController.cs",
               "ViewState": "AQIAAHYAAAAAAAAAAADwv4wAAAA8AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-03T15:31:14.72Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-06-03T15:31:14.72Z"
             },
             {
               "$type": "Document",
@@ -528,19 +519,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 0,
               "Title": "appsettings.json",
               "DocumentMoniker": "C:\\Users\\Korisnik\\Desktop\\Tim7\\RentACar\\appsettings.json",
               "RelativeDocumentMoniker": "appsettings.json",
               "ToolTip": "C:\\Users\\Korisnik\\Desktop\\Tim7\\RentACar\\appsettings.json",
               "RelativeToolTip": "appsettings.json",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAApAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAAADAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2024-06-03T14:56:22.354Z"
+              "WhenOpened": "2024-06-03T14:56:22.354Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "TransportniTip.cs",
               "DocumentMoniker": "C:\\Users\\Korisnik\\Desktop\\Tim7\\RentACar\\Models\\TransportniTip.cs",
               "RelativeDocumentMoniker": "Models\\TransportniTip.cs",
@@ -548,8 +540,7 @@
               "RelativeToolTip": "Models\\TransportniTip.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-03T14:51:51.13Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-06-03T14:51:51.13Z"
             },
             {
               "$type": "Document",
